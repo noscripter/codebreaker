@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Codebreaker is a version of a game also known as Cows &amp; Bulls, Bulls &amp; Cows, Mastermind, and several other names, depending on where you're from. In this version it's played with four-letter words with no repeating letters (see wordbank below), but in other itereations it's also been played with four-digit numbers. ">
+  <meta name="keywords" content="javascript game, cows and bulls, codebreaker">
+  <meta name="author" content="Keith Collins">
+
+  <title>Codebreaker by Keith Collins</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap/css/narrow.css" rel="stylesheet">
+
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+  <!-- codebreaker css -->
+  <link href="codebreaker.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row title-row">
+      <div class="col-lg-12">
+        <h1>CODEBREAKER</h1>
+      </div>
+    </div>
+    <div id="game-container">
+      <div class="row message-row">
+        <div class="col-lg-12" id="user-word-instructions">
+          <p id="message-line-1">First, give me a word to guess. It can be any four-letter word that has no repeating letters.</p>
+          <p id="message-line-2"></p>
+        </div>
+      </div>
+      <div class="row input-row">
+        <div class="col-lg-12" id="user-input">
+          <div id="input-user-word">
+            <span style="font-size:30px;color:#333">&#8627;</span> <input type="text" id="user-word" placeholder="____" maxlength="4"/>
+          </div>
+          <div id="input-guess">
+            <span style="font-size:30px;color:#333">&#8627;</span> <input type="text" id="guess" placeholder="____" maxlength="4"/>
+          </div>
+        </div>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width:50px">#</th>
+            <th style="width:185px">User</th>
+            <th style="width:60px">&#x2605;</th>
+            <th style="width:60px">&#x2606;</th>
+            <th style="width:185px">Computer</th>
+            <th style="width:60px">&#x2605;</th>
+            <th>&#x2606;</th>
+          </tr>
+        </thead>
+        <tbody id="guess-container">
+          <tr class="guess-row scorecard">
+            <td class="round-num"></td>
+            <td class="user-guess">____</td>
+            <td class="user-guess-x"><div style="padding-left:3px">0</div></td>
+            <td class="user-guess-o"><div style="padding-left:3px">0</div></td>
+            <td class="computer-guess">____</td>
+            <td class="computer-guess-x"><div style="padding-left:3px">0</div></td>
+            <td class="computer-guess-o"><div style="padding-left:3px">0</div></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="key">
+        &#x2605; = Number of correct letters in the <span class="bold">correct</span> positions<br>
+        &#x2606; = Number of correct letters in the <span class="bold">incorrect</span> positions<br><br>
+        <div style="text-transform:none;font-size:14px">
+          Example: If the computer's secret word is OV<span class="blue">AL</span> and you guess ME<span class="blue">AL</span>, 
+          you will get two black stars (&#x2605;) and zero white stars (&#x2606;). Or, if the secret word is 
+          <span class="blue">OV</span>A<span class="blue">L</span> and you guess <span class="blue">LOV</span>E, 
+          you will get zero black stars and three white stars. This will help you eliminate letters and home in on the right word.
+        </div>
+      </p>
+
+    </div>
+
+
+
+    <footer class="footer">
+      <div id="about-float">About / Word Bank<br>&#x25BC;</div>
+
+      <h3>About<br></h3>
+
+      <p style="text-transform: none;">
+        Codebreaker is a version of a game also known as Cows &amp; Bulls, Bulls &amp; Cows, Mastermind, and several other names, depending on where you're from.
+        In this version it's played with four-letter words with no repeating letters (see word bank below), but in other iterations it's also been played with four-digit
+        numbers.<br><br>
+        Made by <a href="//twitter.com/collinskeith">Keith Collins</a>. See the code on <a href="https://github.com/keithcollins/keithcollins.github.io/tree/master/codebreaker">github.com</a>.<br><br>
+      </p>
+
+      <h3>Word Bank<br></h3>
+
+      <p id="wordbank" style="text-transform: none;"></p>
+
+    </footer>
+
+  </div> <!-- /container -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <!-- codebreaker js -->
+  <script src="codebreaker.js"></script>
+  
+  <!-- vanity -->
+  <script>
+  (function(){
+    // start game
+    codebreaker.init();
+  })()
+  </script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19469914-2']);
+    _gaq.push(['_trackPageview']);
+    (function()
+    {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>
