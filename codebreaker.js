@@ -18,7 +18,7 @@ var codebreaker = {
         s.recordedGuesses.push(guess);
         if (guess === s.computerWord) {
           // user wins
-          winner = "<span class='blue'>You win! My secret word was <span class='bold-caps'>"+s.computerWord+"</span>.</span>";
+          winner = "<span class='blue'>You win! My secret word was <span class='bold-caps'>"+s.computerWord+"</span>. My next guess was <span class='bold-caps'>"+this.getComputerGuess()[1]+".</span></span>";
           cows = 0;
           bulls = 4;
         } else {
@@ -42,7 +42,7 @@ var codebreaker = {
       "bulls": bulls
     };
   },
-  doComputerGuess: function() {
+  getComputerGuess: function() {
     var s = this.settings;
     // computer makes guess
     var scores = [];
@@ -93,7 +93,12 @@ var codebreaker = {
       computerGuessIndex = Math.floor(Math.random() * s.remainingWords.length) + 0;
       computerGuess = s.remainingWords[computerGuessIndex];
     }
-
+    return [computerGuessIndex,computerGuess];
+  },
+  doComputerGuess: function() {
+    var s = this.settings;
+    var computerGuessIndex = this.getComputerGuess()[0];
+    var computerGuess = this.getComputerGuess()[1];
     var computerCows = 0;
     var computerBulls = 0;
     var message = "";
